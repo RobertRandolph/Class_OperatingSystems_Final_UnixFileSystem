@@ -1,0 +1,125 @@
+Client 1: Basic set and get with single file
+rv from setAttribute 1,1,1 ; 15 ; myTag is 0 Correct
+rv from setAttribute 5,8,12 ; 210 ; epic is 0 Correct
+rv from setAttribute 185,28,112 ; 2110 ; evenBetter is 0 Correct
+rv from getAttribute is 0 Correct
+RGB: 1, 1, 1; rating: 15; tag: myTag       
+rv from getAttribute is 0 Correct
+RGB: 5, 8, 12; rating: 210; tag: epic        
+rv from getAttribute is 0 Correct
+RGB: 185, 28, 112; rating: 2110; tag: evenBetter  
+rv from setAttribute 100,20,100 ; 1 ; bloop is 0 Correct
+rv from getAttribute is 0 Correct
+RGB: 100, 20, 100; rating: 1; tag: bloop       
+
+Client 1: Edge cases with single file
+rv from setAttribute 0,0,0 ; 0 ; '' is 0 Correct
+rv from setAttribute 255,255,255 ; 9999 ; abcdefghijkl is 0 Correct
+rv from getAttribute is 0 Correct
+RGB: 0, 0, 0; rating: 0; tag:             
+rv from getAttribute is 0 Correct
+RGB: 255, 255, 255; rating: 9999; tag: abcdefghijkl
+
+Client 1: Basic set and get with directory file
+rv from getAttribute is 0 Correct
+RGB: 74, 73, 77; rating: 9001; tag: Jim's Great!
+rv from setAttribute 1,1,1 ; 15 ; myTag is 0 Correct
+rv from setAttribute 5,8,12 ; 210 ; epic is 0 Correct
+rv from setAttribute 185,28,112 ; 2110 ; evenBetter is 0 Correct
+rv from getAttribute is 0 Correct
+RGB: 1, 1, 1; rating: 15; tag: myTag       
+rv from getAttribute is 0 Correct
+RGB: 5, 8, 12; rating: 210; tag: epic        
+rv from getAttribute is 0 Correct
+RGB: 185, 28, 112; rating: 2110; tag: evenBetter  
+rv from setAttribute 100,20,100 ; 1 ; bloop is 0 Correct
+rv from getAttribute is 0 Correct
+RGB: 100, 20, 100; rating: 1; tag: bloop       
+
+Client 1: invalid file, locked, opened with file
+rv from setAttribute /d is -1 Correct
+rv from setAttribute /e is -1 Correct
+rv from setAttribute a is -1 Correct
+rv from setAttribute /a is -2 Correct
+rv from setAttribute /b is -2 Correct
+rv from getAttribute /d is -1 Correct
+rv from getAttribute /e is -1 Correct
+rv from getAttribute d is -1 Correct
+rv from getAttribute /a is -2 Correct
+rv from getAttribute /b is -2 Correct
+
+Client 1: invalid RGB, rating, tag
+/a and /b is locked and opened respectively
+rv from setAttribute -1,0,0 ; 0 ; '' is -3 Correct
+rv from setAttribute 0,-1,0 ; 0 ; '' is -3 Correct
+rv from setAttribute 0,0,-1 ; 0 ; '' is -3 Correct
+rv from setAttribute 256,0,0 ; 0 ; '' is -3 Correct
+rv from setAttribute 0,256,0 ; 0 ; '' is -3 Correct
+rv from setAttribute 0,0,256 ; 0 ; '' is -3 Correct
+rv from setAttribute 0,0,0 ; -1 ; '' is -4 Correct
+rv from setAttribute 0,0,0 ; 10000 ; '' is -4 Correct
+rv from setAttribute 0,0,0 ; 0 ; abcdefghijklm is -5 Correct
+
+Client 1: invalid file, locked, opened with directory
+rv from setAttribute /d/d is -1 Correct
+rv from setAttribute /d/a is -2 Correct
+rv from setAttribute /d/b is -2 Correct
+rv from getAttribute /d/d is -1 Correct
+rv from getAttribute /d/a is -2 Correct
+rv from getAttribute /d/b is -2 Correct
+
+Client 1: invalid RGB, rating, tag
+/d/a and /d/b is locked and opened respectively
+rv from setAttribute -1,0,0 ; 0 ; '' is -3 Correct
+rv from setAttribute 0,-1,0 ; 0 ; '' is -3 Correct
+rv from setAttribute 0,0,-1 ; 0 ; '' is -3 Correct
+rv from setAttribute 256,0,0 ; 0 ; '' is -3 Correct
+rv from setAttribute 0,256,0 ; 0 ; '' is -3 Correct
+rv from setAttribute 0,0,256 ; 0 ; '' is -3 Correct
+rv from setAttribute 0,0,0 ; -1 ; '' is -4 Correct
+rv from setAttribute 0,0,0 ; 10000 ; '' is -4 Correct
+rv from setAttribute 0,0,0 ; 0 ; abcdefghijklm is -5 Correct
+
+Other clients: with file
+rv from getAttribute is 0 Correct
+RGB: 74, 73, 77; rating: 9001; tag: Jim's Great!
+rv from getAttribute is 0 Correct
+RGB: 74, 73, 77; rating: 9001; tag: Jim's Great!
+rv from getAttribute is 0 Correct
+RGB: 100, 20, 100; rating: 1; tag: bloop       
+rv from getAttribute is 0 Correct
+RGB: 74, 73, 77; rating: 9001; tag: Jim's Great!
+rv from setAttribute 1,1,1 ; 15 ; myTag is 0 Correct
+rv from setAttribute 5,8,12 ; 210 ; epic is 0 Correct
+rv from setAttribute 185,28,112 ; 2110 ; evenBetter is 0 Correct
+rv from setAttribute 2,21,12 ; 125 ; myzzTag is 0 Correct
+rv from getAttribute is 0 Correct
+RGB: 2, 21, 12; rating: 125; tag: myzzTag     
+rv from getAttribute is 0 Correct
+RGB: 5, 8, 12; rating: 210; tag: epic        
+rv from getAttribute is 0 Correct
+RGB: 185, 28, 112; rating: 2110; tag: evenBetter  
+rv from getAttribute is 0 Correct
+RGB: 2, 21, 12; rating: 125; tag: myzzTag     
+
+Other clients: with directory
+rv from getAttribute is 0 Correct
+RGB: 74, 73, 77; rating: 9001; tag: Jim's Great!
+rv from getAttribute is 0 Correct
+RGB: 74, 73, 77; rating: 9001; tag: Jim's Great!
+rv from getAttribute is 0 Correct
+RGB: 100, 20, 100; rating: 1; tag: bloop       
+rv from getAttribute is 0 Correct
+RGB: 74, 73, 77; rating: 9001; tag: Jim's Great!
+rv from setAttribute 1,1,1 ; 15 ; myTag is 0 Correct
+rv from setAttribute 5,8,12 ; 210 ; epic is 0 Correct
+rv from setAttribute 185,28,112 ; 2110 ; evenBetter is 0 Correct
+rv from setAttribute 2,21,12 ; 125 ; myzzTag is 0 Correct
+rv from getAttribute is 0 Correct
+RGB: 2, 21, 12; rating: 125; tag: myzzTag     
+rv from getAttribute is 0 Correct
+RGB: 5, 8, 12; rating: 210; tag: epic        
+rv from getAttribute is 0 Correct
+RGB: 185, 28, 112; rating: 2110; tag: evenBetter  
+rv from getAttribute is 0 Correct
+RGB: 2, 21, 12; rating: 125; tag: myzzTag     
